@@ -1,7 +1,7 @@
 from fastapi import FastAPI
+from typing import Optional
 
 app = FastAPI()
-
 
 user_list = [
    "Jerry",
@@ -25,6 +25,10 @@ async def search_for_user(username: str):
     for user in user_list:
         if username in user_list:
             return { "message": f"details for user {username}" }
-
         else:
             return { "message": "User Not Found" }
+
+
+@app.get('/greet/')
+async def greet(username: Optional[str] = "Tanay"):
+   return { "message": f"Hello {username}!" }
