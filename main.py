@@ -32,3 +32,5 @@ async def search_for_user(username: str):
 @app.get('/greet/')
 async def greet(username: Optional[str] = "Tanay"):
    return { "message": f"Hello {username}!" }
+
+
